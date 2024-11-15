@@ -25,6 +25,7 @@ DigitalInOut SW5(BTN4_PIN,PIN_INPUT,PullDown,0);
 DigitalOut ledRed(TRAF_RED1_PIN);
 DigitalOut ledYel(TRAF_YEL1_PIN);
 DigitalOut ledGrn(TRAF_GRN1_PIN);
+DigitalInOut ledWhite(TRAF_WHITE_PIN, PinDirection::PIN_OUTPUT, PinMode::OpenDrainNoPull, 0);
 
 int main()
 {
@@ -40,6 +41,20 @@ int main()
         } else {
             ledYel = 0;
         }
+
+        if (SW4.read() == 0) {
+            ledGrn = 0;
+        } else {
+            ledGrn = 1;
+        }
+
+        if (SW5.read() == 1) {
+            ledWhite = 0;
+        } else {
+            ledWhite =1;
+        }
+
     }
 }
+
 

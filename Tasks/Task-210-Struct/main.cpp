@@ -1,4 +1,6 @@
 #include "mbed.h"
+#include <cstdio>
+#include <iterator>
 
 // Date Type ComplexNumber_C
 typedef struct {
@@ -9,21 +11,29 @@ typedef struct {
 
 int main() {
 
-    //Create instance of a complex number
-    ComplexNumber_C p;
+  // Create instance of a complex number
+  ComplexNumber_C p;
 
-    //Initialise each attribute 
-    p.real = 2.0;
-    p.imag = 3.0;
-    
-    //Create and Initialise 
-    ComplexNumber_C q = {1.0, 1.0};
 
-    // TASK:
-    // Create another complex number y
-    // Calculate the complex sum of p and q and store in y
-    // Use printf to display as a complex number (hint: you need two placeholders)
-    
-    while (true) {
-    }
+  // Initialise each attribute
+  p.real = 2.0;
+  p.imag = 3.0;
+
+
+  // Create and Initialise
+  ComplexNumber_C q = {1.0, 1.0};
+  ComplexNumber_C Y;
+  Y.imag = p.imag + q.imag;
+  Y.real = p.real + q.real;
+
+  // TASK:
+  // Create another complex number y
+  // Calculate the complex sum of p and q and store in y
+  // Use printf to display as a complex number (hint: you need two placeholders)
+
+  while (true) {
+    printf("Y = %.1f + %.1fi \n", Y.real, Y.imag);
+    break;
+  }
+
 }

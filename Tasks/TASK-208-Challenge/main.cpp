@@ -4,7 +4,7 @@ using namespace uop_msb;
 // Inputs
 DigitalIn SW2(BTN1_PIN);
 DigitalIn SW3(BTN2_PIN);
-
+DigitalIn SWB(USER_BUTTON);
 // Outputs
 DigitalOut ledRed(TRAF_RED1_PIN);
 DigitalOut ledYel(TRAF_YEL1_PIN);

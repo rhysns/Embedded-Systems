@@ -9,6 +9,7 @@ DigitalOut ledBlue(LED2,1);
 DigitalOut ledRed(LED3,1);
 
 LCD_16X2_DISPLAY lcd;
+Buzzer buzz;
 
 int main()
 {
@@ -25,11 +26,12 @@ int main()
     ledRed = 0;
     ledGreen = 0;
     ledBlue = 0;
+    
 
     // Write to LCD using the LCD_16X2_DISPLAY driver class
-    lcd.printf("Hello World");
+    lcd.printf("WINKY");
     lcd.locate(1, 0);   //Row 1, Col 0
-    lcd.printf("ELEC143");
+    lcd.printf("<3");
 
     // This is a variable (not an oject as it has no functions) that stores a whole number (integer) in memory
     // (I used the keyword volatile to force it to use memory... long story and one for later)
@@ -39,6 +41,7 @@ int main()
     {
         //Toggle the LED
         ledBlue = !ledBlue;
+        buzz.playTone("C");
 
         //Add 1 to the counter "variable"
         counter = counter + 1;
@@ -47,6 +50,9 @@ int main()
         printf("Count: %d\n", counter);
 
         //Wait
-        wait_us(WAIT_TIME_MS * 1000);
+        wait_us(WAIT_TIME_MS * 500);
+        buzz.rest();
+        wait_us(WAIT_TIME_MS * 500);
+
     }
 }

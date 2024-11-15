@@ -100,10 +100,13 @@ int main()
         }
 
         // LED
-        if (tm >= 250ms) {
+         // LED
+        microseconds tt = 90ms + (count+1)*10ms;
+        if (tm >= tt) {
             greenLED = !greenLED;
             tmr.reset();
         }
+        
         
         // Slow it down a bit (and debounce the switches)
         wait_us(50000);  
